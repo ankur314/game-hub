@@ -3,12 +3,16 @@ import logo from "../assets/logo.webp";
 import ColorModeSwitch from "./ColorModeSwitch";
 import SearchInput from "./SearchInput";
 
-const Navbar = () => {
+interface Props {
+  onSearch: (searchString: string) => void;
+}
+
+const Navbar = ({ onSearch }: Props) => {
   return (
     // Layout component Horizontally. If you add one component after another, they will appear horizontally right next to each other
     <HStack padding="10px">
       <Image src={logo} boxSize="60px"></Image>
-      <SearchInput />
+      <SearchInput onSearch={onSearch} />
       <ColorModeSwitch />
     </HStack>
   );
