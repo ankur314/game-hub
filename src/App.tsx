@@ -10,13 +10,18 @@ function App() {
         base: `"nav" "main"`, // Base type is mobile devices
         lg: `"nav nav" "aside main"`, // Devices wider than 1024 px
       }}
+      templateColumns={{
+        base: "1fr",
+        lg: "200px 1fr",
+      }}
     >
       <GridItem area="nav">
         <Navbar />
       </GridItem>
-      {/* Show this component for devices above lg size */}
       <Show above="lg">
-        <GenreList />
+        <GridItem area="aside" paddingX={5}>
+          <GenreList />
+        </GridItem>
       </Show>
       <GridItem area="main">
         <GameGrid />
